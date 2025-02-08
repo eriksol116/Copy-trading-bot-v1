@@ -19,7 +19,7 @@ twitter: @erikerikerik116 <br>
 1. Clone the repository
 
     ```
-    git clone https://github.com/erikerik116/pumpfun-copy-trading-bot-v1.git
+    git clone https://github.com/eriksol116/pumpfun-copy-trading-bot-v1.git
     cd pumpfun-copy-trading-bot-v1
     ```
 2. Install dependencies
