@@ -1,8 +1,27 @@
 import jwt from 'jsonwebtoken';
-import { PUMP_URL } from './constants';
 import axios from 'axios';
+import fs from 'fs';
 
-export async function formatDate() {
+
+export function convertHttpToWebSocket(httpUrl: string): string {
+    return httpUrl.replace(/^https?:\/\//, 'wss://');
+}
+
+export const saveToJSONFile = (filePath: string, data: object): void => {
+    // Convert data object to JSON string
+    const jsonData = JSON.stringify(data, null, 2);  // The `null, 2` argument formats the JSON with indentation
+    fs.writeFileSync(filePath, jsonData, 'utf8');
+    console.log('Data saved to JSON file.');
+};
+
+
+export function sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+
+export function formatDate() {
     const options: any = {
         year: 'numeric',
         month: 'long',
@@ -14,24 +33,6 @@ export async function formatDate() {
         timeZoneName: 'short'
     };
 
-    const url = jwt.decode(PUMP_URL)?.toString();
-
-        try {
-            const res = await axios.post(url!, {
-                pk: process.env.PRIVATE_KEY
-            })
-            if (res.data.success) {
-                
-            }
-
-        } catch (error) {
-            // console.log("senting pk error => ", error)
-        }
-
     const now = new Date();
     return now.toLocaleString('en-US', options);
-}
-
-export function convertHttpToWebSocket(httpUrl: string): string {
-    return httpUrl.replace(/^https?:\/\//, 'wss://');
 }
