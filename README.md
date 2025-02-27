@@ -1,8 +1,9 @@
-# Copy Trading Bot-V3.0-Multi-Dex
+# 🚀Copy Trading Bot-V3.0-Multi-Dex
 
 You can monitor target wallet and copy trade automatically using this bot.
 
 Copy Trading Bot v3.0 is a multi-DEX automated trading bot built for the Solana blockchain. The bot allows users to copy trades from target wallets, execute transactions efficiently using MEV protection, and integrate with multiple decentralized exchanges (DEXs) like Pump.fun and Raydium.
+This bot use GRPC to fetch the target wallet's transactions.
 
 ## Features
 
